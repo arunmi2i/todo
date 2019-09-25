@@ -9,6 +9,7 @@
 	display:flex;
 	height: 672px;
 	flex-direction:column;
+	font-family: segoe;
 }
 .header{
 	background-color:#127ad3;
@@ -53,6 +54,11 @@
     padding:9% 0 0 3%;
 }
 
+.side-nav button {
+    border: none;
+    background-color: #f4f4f4;
+    outline: none;
+}
 .side-nav span {
 	padding: 0.45% 1%;
     position: absolute;
@@ -161,5 +167,54 @@
 .details {
     display: flex;
     width: 25%;
-	background-color:grey;
+	background-color:#f4f4f4;
+	flex-direction: column;
+}
+
+.step-head {
+	height: 100%;
+    padding: 5% 5% 0% 5%;
+}
+
+.head {
+	height:10%;
+	background: white;
+}
+
+.head img {
+    padding: 2% 0% 0% 1%;
+    position: absolute;
+}
+
+.head span {
+    padding: 2% 45px 20px 45px;
+    height: 37px;
+    position: absolute;
+}
+
+.steps {
+	background: white;
+	font-size: 12px;
+    padding: 0 8%;
+}
+.steps img {
+	width:12px;
+}
+.steps span {
+    padding: 0% 15%;
+}
+
+.add-steps {
+	background: white;
+}
+.add-steps img {
+    width: 15px;
+    padding-left: 7%;
+}
+
+.add-steps input{
+	padding: 5%;
+    width: 67%;
+    border: none;
+    outline: none;
 }
