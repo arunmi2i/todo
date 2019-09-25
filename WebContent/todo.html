@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ToDo</title>
+	<link rel="stylesheet" href="todo.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="container">
+	<div class="header">
+		<h2>To-Do</h2>
+	</div>
+	<div class="main" id="main">
+		<div class="side-nav" id="side-nav">
+			<div class="side-menu" id="side-menu">
+				<button id="menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
+			</div>
+			<div class="list-day" id="list-day">
+				<img src="sun.png"/>
+				<span>My Day</span>
+			</div>
+			<div class="list-important" id="list-important">
+				<img src="star.png"/>
+				<span>Important</span>
+			</div>
+			<div class="list-planned" id="list-planned">
+				<img src="planner.png"/>
+				<span>Planned</span>
+			</div>
+			<div class="list-task" id="list-task">
+				<img src="home.png"/>
+				<span>Task</span>
+			</div>
+			<div class="tasks" id="tasks">
+			</div>
+			<div class="list-new" id="list-new">
+				<img src="plus.png"/>
+				<span><input type="text" id="newTask" placeholder="New List"/></span>
+			</div>
+		</div>
+		<div class="list" id="list">
+			<div class="list-head" id="list-head">
+			</div>
+			<div class="add-task">
+				<img src="plus.png"/>
+				<input type="text" id="input" placeholder="Add a task">
+			</div>
+			<div id="myList" class="myList">
+			</div>
+		</div>
+		<div class="details">
+			
+		</div>
+	</div>
+	<script src="todo.js"></script>
+</body>
+</html>

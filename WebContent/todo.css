@@ -1,0 +1,165 @@
+@font-face {
+	font-family:segoe;
+	src:url("segoe.ttf");
+}
+
+
+.container{
+	margin:0;
+	display:flex;
+	height: 672px;
+	flex-direction:column;
+}
+.header{
+	background-color:#127ad3;
+	height:50px;
+    color: #c7ddf5;
+    width:100%;
+    
+}
+
+.header h2{
+	font-family: segoe;
+    margin: 9px;
+}
+
+.main{
+	display:flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+
+.side-nav {
+	display:flex;
+	width:20%;
+	flex-direction:column;
+	background-color:#f4f4f4;
+	font-family:segoe;
+    font-size: 0.9rem;
+}
+
+.menu {
+	background:url("menu.png");
+	height:5%;
+	widtht:5%;
+}
+
+.side-menu {
+    padding: 25px 9px;
+}
+.side-menu i {
+    color: #127ad3;
+    padding:9% 0 0 3%;
+}
+
+.side-nav span {
+	padding: 0.45% 1%;
+    position: absolute;
+}
+.list-day {
+    padding: 2px 9px;
+}
+.list-day:hover{
+    background-color:#ffffff;
+}
+
+.list-day img{
+	width:25px;
+	height:25px;
+}
+
+
+.list-important {
+    padding: 2px 9px;
+}
+.list-important:hover {
+    background-color:#ffffff;
+}
+
+.list-important span{
+	padding: 0.45% 1%;;
+    position: absolute;
+}
+
+.list-planned {
+    padding: 2px 9px;
+}
+.list-planned:hover {
+    background-color:#ffffff;
+}
+
+.list-task {
+    padding: 2px 9px;
+    
+}
+.list-task:hover {
+    background-color:#ffffff;
+}
+
+.list-mylist {
+    padding: 10% 5% 0 5%;
+}
+.list-new {
+    padding: 2px 9px;
+    width: 100%;
+    border: 0;
+    outline: 0;
+}
+.list-new span {
+	padding: 0.45% 1%;
+    position: absolute;
+    width: 10%;
+}
+
+.list-new input {
+	width:100%;
+    border: none;
+    background-color: #f4f4f4;
+    outline: none;
+}
+.tasks {
+    padding: 18px 9px;
+}
+
+.tasks span {
+    padding: 0% 1%;
+    position: absolute;
+}
+
+.list {
+	display:flex;
+	width:80%;
+	flex-direction: column;
+    font-family: sans-serif;
+}
+
+.list-head {
+	padding: 0% 5%;
+    color: #127AD3;
+}
+
+.list input {
+	width: 95%;
+    height: 87%;
+    border: none;
+    outline: none;
+}
+
+.myList {
+	display: flex;
+    padding: 2%;
+    flex-direction: column;
+}
+.add-task {
+	display:flex;
+}
+
+.add-task img {
+    padding: 2%;
+}
+.details {
+    display: flex;
+    width: 25%;
+	background-color:grey;
+}
