@@ -77,12 +77,6 @@ var listId;
 		show();
 	}
 
-	function demo() {
-		listId = this.id;
-		console.log(id+ "id"+this.id)
-		console.log(list+"====="+span+"++++")
-		console.log(list[this.id].steps)
-	}
 	function myList() {
 		var headDiv= document.getElementById("head");
 		headDiv.innerHTML = "";
@@ -157,16 +151,27 @@ document.getElementById("newTask").addEventListener("keydown", addNewTask);
 	}
 
 	function newTask() {
+		//console.log(tasks[id].name)
+		//document.getElementById("tasks").innerHTML = "";
+		if(document.getElementById("newTask").value == "") {
+			document.getElementById("tasks").innerHTML = "";
+		}
 		var span = document.createElement("span");
 		var newDiv = document.createElement("div");
 		var img = document.createElement("img");
 		var task = createObject();
 		task.id = count++;
+		span.id = "span"+task.id;
 		task.name = document.getElementById("newTask").value;
 		console.log("CREATE OBJ"+task.id);
 		tasks.push(task);
 		img.setAttribute("src", "list.png");
-		span.innerHTML = task.name;
+		if(document.getElementById("newTask").value != "") {
+//			/console.log(tasks[i])
+			span.innerHTML = task.name;
+		} else {
+			span.innerHTML = tasks[id].name;
+		}
 		newDiv.appendChild(img);
 		newDiv.appendChild(span);
 		newDiv.id = task.id;
@@ -186,15 +191,22 @@ document.getElementById("newTask").addEventListener("keydown", addNewTask);
 		var name = tasks[id].name;
 		console.log(name+"sdjfhjshfdsf");
 		listHead.innerHTML="";
-		var head = document.createElement('h2');
-		head.innerHTML = name;
-		listHead.append(head);
+		var head = document.createElement('input');
+		head.setAttribute("type", "text");
+		head.setAttribute("value", name);
+		head.id = "headTask";
+		listHead.appendChild(head);
+		//head.innerHTML = name;
+		//listHead.append(head);
+		console.log(listHead)
+		//listHead.addEventListener("keydown", editTask.bind(listHead));
+		document.getElementById("headTask").addEventListener("keydown", editTask);
 		console.log(count+"Count");
 		showTask(id);
 	}
 
 	function showTask(id) {
-		remove();
+		document.getElementById("myList").innerHTML = "";
 		console.log(id+"datd"+tasks[id].data);
 		var list = tasks[id].data;
 		console.log(list);
@@ -210,9 +222,6 @@ document.getElementById("newTask").addEventListener("keydown", addNewTask);
 			console.log(list[i].name+"LEN"+list.length)
 			var span = document.createElement("span");
 			span.innerHTML=list[i].name;
-			var cb = document.createElement('input');
-		    cb.type = 'checkbox';
-		    taskItem.appendChild(cb);
 			console.log(span)
 			taskItem.appendChild(span);
 			document.getElementById("myList").appendChild(taskItem);
@@ -220,9 +229,16 @@ document.getElementById("newTask").addEventListener("keydown", addNewTask);
 		}
 	}
 
-	function remove() {
-		var myList = document.getElementById("myList");
-		while(myList.hasChildNodes()) {
-		    myList.removeChild(myList.firstChild);
+	function editTask(e) {
+		console.log(document.getElementById("headTask"));
+		if(e.keyCode == 13) {
+			var listHead = document.getElementById("list-head");
+			var value = document.getElementById("headTask").value;
+			tasks[id].name = value;
+			console.log(this);
+			console.log("span"+id)
+			console.log(document.getElementById("span"+id))
+			document.getElementById("span"+id).innerHTML = value;
+			console.log(document.getElementById("headTask").innerHTML);
 		}
 	}
