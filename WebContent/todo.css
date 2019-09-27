@@ -144,9 +144,13 @@
 	padding: 0% 5%;
     color: #127AD3;
 }
+.list-head input {
+    font-size: 20px;
+    color: #127AD3;
+}
 
 .list input {
-	width: 95%;
+	width: 25%;
     height: 87%;
     border: none;
     outline: none;
@@ -157,6 +161,16 @@
     padding: 2%;
     flex-direction: column;
 }
+.myList span {
+    position: absolute;
+    padding-left: 2%;
+    width: 40%;
+    height: 3%;
+}
+.myList img {
+    width: 20px;
+}
+
 .add-task {
 	display:flex;
 }
@@ -187,7 +201,7 @@
 }
 
 .head {
-	height:10%;
+	height:9%;
 	background: white;
 }
 
@@ -196,16 +210,18 @@
     position: absolute;
 }
 
-.head span {
-    padding: 2% 45px 20px 45px;
-    height: 37px;
-    position: absolute;
+.head input {
+    font-size: 15px;
+    width: 60%;
+    height: 87%;
+    border: none;
+    outline: none;
+    padding: 9% 20% 9% 20%;
 }
 
 .steps {
 	background: white;
 	font-size: 12px;
-    padding: 0 8%;
 }
 .steps img {
 	width:12px;
@@ -281,4 +297,8 @@
 .notes input {
     border: none;
     outline: none;
+}
+
+.checkbox : checked {
+	background:#40e0d0;
 }
