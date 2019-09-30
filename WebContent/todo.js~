@@ -1,0 +1,298 @@
+document.getElementById("menu").addEventListener("click", myFunction);
+var width = document.getElementById("side-nav").clientWidth;
+var span = document.getElementsByTagName("span");
+var id;
+var count = 0;
+var index = 0;
+var tasks = [];
+var listId;
+
+	function myFunction() {
+		console.log("check");
+		if(document.getElementById("side-nav").clientWidth < 100) {
+			open();
+		} else {
+			close();
+		}
+	}
+
+	function open() {
+		document.getElementById("side-nav").style.width="20%";
+		document.getElementById("list").style.width="80%";
+		var i;
+		for(i=0; i<span.length; i++) {
+			span[i].style.display="inline";
+		}
+	}
+
+	function close() {
+		document.getElementById("side-nav").style.width="6%";
+		document.getElementById("list").style.width="74%";
+		var i;
+		for(i=0; i<span.length; i++) {
+			span[i].style.display="none";
+		}
+		console.log(span);
+	}
+
+	function createObject() {
+		var task = {id:"", name:name,status:true, data:[]};
+		return task;
+	}
+
+	function getElementById(element) {
+		return $(element);
+	}
+
+	function createElement(element) {
+		return $(element);
+	}
+
+	getElementById("#input").keydown(addNewList);
+	function addNewList(e) {
+		if(e.keyCode == 13 && getElementById("#input").val() != "") {
+			newList();
+		}
+	}
+
+	/**
+	 * 
+	 * @returns
+	 */
+	function newList() {
+		var step = {id:"", name:name, status:true, checked:false, steps:[]};
+		var span = createElement('<span>');
+		var taskItem = createElement('<div>');
+		var img = createElement('<img>');
+		var task = tasks[id];
+		console.log(span);
+		step.id = index++;
+		step.name = getElementById("#input").val();
+		console.log(task.id+"task object"+span);
+		img.attr("src", "round.png");
+		img.attr('id', "img"+step.id);
+		taskItem.attr('id', step.id);
+		span.attr('id',"list"+step.id);
+		console.log(taskItem.id)
+		$(taskItem).append(img);
+		taskItem.css("padding", "2% 5%");
+		span.text(step.name);
+		$(taskItem).append(span);
+		console.log(span);
+		getElementById("#input").val("");
+		console.log(taskItem)
+		span.click(myList.bind(taskItem.get(0)));
+		img.click(function() {
+			if(!step.checked) {
+				img.attr("src", "check.svg");
+				step.checked = true;
+				span.css("textDecoration", "line-through")
+			} else {
+				img.attr("src", "round.png");
+				step.checked = false;
+				span.css("textDecoration", "none");
+			}
+		});
+		$("#myList").append(taskItem);
+		task.data.push(step);
+		show();
+	}
+
+	/**
+	 * 
+	 * @returns
+	 */
+	function myList() {
+		var headDiv= getElementById("#head");
+		var h2 = createElement('<h2>');
+		console.log(this)
+		console.log(tasks[id].data[listId])
+		headDiv.html("");
+		headDiv.css("textDecoration", "line-through");
+		getElementById("#steps").html("");
+		var img = createElement("<img>");
+		img.attr("src", "round.png");
+		img.attr("id", listId);
+		console.log(listId,"listId")
+		listId = this.id;
+		console.log(listId,"listId")
+		console.log(tasks[id].data[listId]+ "id"+this.id)
+		var input = createElement('<input>');
+		input.attr("id", "headList");
+		var list = tasks[id].data;
+		console.log(list+"====="+span+"++++")
+		console.log(list[this.id].steps)
+		input.attr("type", "text");
+		input.attr("value", list[this.id].name);
+		$(h2).append(input);
+		console.log(input,tasks[id].data[listId].checked);
+		$(headDiv).append(img);
+		$(headDiv).append(h2);
+		input.keydown(editList);
+		showSteps();
+	}
+
+	function showSteps() {
+		var steps = tasks[id].data[listId].steps;
+		console.log(steps)
+		for(i=0; i<steps.length; i++) {
+			console.log(steps[i])
+			var span = document.createElement("span");
+			var newDiv = document.createElement("div");
+			var img = document.createElement("img");
+			img.setAttribute("src", "round.png");
+			var value = steps[i];
+			span.innerHTML = value;
+			newDiv.append(img);
+			newDiv.append(span);
+			console.log(document.getElementById("steps"));
+			document.getElementById("steps").appendChild(newDiv);
+		}
+	}
+
+	function editList(e) {
+		if(e.keyCode == 13) {
+			var headDiv= document.getElementById("head");
+			var value = document.getElementById("headList").value;
+			console.log(tasks[id].data[listId])
+			tasks[id].data[listId].name = value;
+			console.log(tasks[id].data[listId].name)
+			console.log(value)
+			console.log("list"+listId)
+		console.log(document.getElementById("list"+listId))
+			document.getElementById("list"+listId).innerHTML = value;
+			console.log(document.getElementById("list"+listId))
+		}
+	}
+
+	function show() {
+		for(i=0;i<tasks.length;i++) {
+			console.log(tasks);
+		}
+	}
+document.getElementById("newStep").addEventListener("keydown", addStep);
+	function addStep(e) {
+		if(e.keyCode == 13 && document.getElementById("newStep").value != "") {
+			newStep();
+		}
+	}
+
+	function newStep() {
+		var span = document.createElement("span");
+		var newDiv = document.createElement("div");
+		var img = document.createElement("img");
+		img.setAttribute("src", "round.png");
+		var value = document.getElementById("newStep").value;
+		console.log(listId);
+		tasks[id].data[listId].steps.push(value);
+		console.log(tasks[id].data[listId].steps)
+		span.innerHTML = value;
+		newDiv.append(img);
+		newDiv.append(span);
+		console.log(document.getElementById("steps"));
+		document.getElementById("steps").appendChild(newDiv);
+		document.getElementById("newStep").value = "";
+	}
+
+document.getElementById("newTask").addEventListener("keydown", addNewTask);
+	function addNewTask(e) {
+		if(e.keyCode == 13 && document.getElementById("newTask").value != "") {
+			newTask();
+		}
+	}
+
+	/**
+	 * Creates the new task by the name which user enters and append in new div.
+	 * 
+	 * @returns
+	 */
+	function newTask() {
+		var span = document.createElement("span");
+		var newDiv = document.createElement("div");
+		var img = document.createElement("img");
+		var task = createObject();
+		task.id = count++;
+		span.id = "span"+task.id;
+		task.name = document.getElementById("newTask").value;
+		tasks.push(task);
+		img.setAttribute("src", "list.png");
+		span.innerHTML = task.name;
+		newDiv.appendChild(img);
+		newDiv.appendChild(span);
+		newDiv.id = task.id;
+		newDiv.style.height = "24px";
+		document.getElementById("tasks").appendChild(newDiv);
+		document.getElementById("newTask").value="";
+		id = task.id;
+		newDiv.addEventListener("click",myTask.bind(newDiv));
+		console.log(newDiv.id+"new task i task"+task.id);
+	}
+
+	/**
+	 * Show the created the tasks
+	 * @returns
+	 */
+	function myTask() {
+		var listHead = document.getElementById("list-head");
+		var h2 = document.createElement('h2');
+		id = this.id;
+		console.log(id)
+		var name = tasks[id].name;
+		console.log(name+"sdjfhjshfdsf");
+		listHead.innerHTML="";
+		var head = document.createElement('input');
+		head.setAttribute("type", "text");
+		head.setAttribute("value", name);
+		head.id = "headTask";
+		h2.appendChild(head);
+		listHead.appendChild(h2);
+		console.log(listHead)
+		document.getElementById("headTask").addEventListener("keydown", editTask);
+		console.log(count+"Count");
+		showTask(id);
+	}
+
+	function showTask(id) {
+		document.getElementById("myList").innerHTML = "";
+		console.log(id+"datd"+tasks[id].data);
+		var list = tasks[id].data;
+		console.log(list);
+		index = 0;
+		console.log(index)
+		for(i=0; i<list.length; i++) {
+			var taskItem = document.createElement("div");
+			taskItem.id = index++;
+			var img = document.createElement("img");
+			taskItem.appendChild(img);
+			taskItem.style.padding = "2% 5%";
+			console.log(list[i].name+"LEN"+list[i].checked)
+			var span = document.createElement("span");
+			span.id = "list"+taskItem.id;
+			span.innerHTML=list[i].name;
+			if(!list[i].checked) {
+				img.setAttribute("src", "round.png");
+			} else {
+				img.setAttribute("src", "check.svg");
+				span.style.textDecoration = "line-through";
+			}
+			console.log(listId)
+			taskItem.appendChild(span);
+			document.getElementById("myList").appendChild(taskItem);
+			taskItem.addEventListener("click",myList.bind(taskItem));
+		}
+	}
+
+	function editTask(e) {
+		console.log(document.getElementById("headTask"));
+		if(e.keyCode == 13) {
+			var listHead = document.getElementById("list-head");
+			var value = document.getElementById("headTask").value;
+			tasks[id].name = value;
+			h2.appendChild(value);
+			console.log(this);
+			console.log("span"+id)
+			console.log(document.getElementById("span"+id))
+			document.getElementById("span"+id).innerHTML = value;
+			console.log(document.getElementById("headTask").innerHTML);
+		}
+	}
