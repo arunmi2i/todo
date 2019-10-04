@@ -1,0 +1,46 @@
+.list {
+	display: flex;
+    width: 30rem;
+    height: 100%;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.list-head {
+	padding: 0% 5%;
+    color: #127AD3;
+}
+.list-head input {
+    font-size: 20px;
+    color: #127AD3;
+}
+
+.list input {
+	width: 25%;
+    height: 87%;
+    border: none;
+    outline: none;
+}
+
+.myList {
+	display: flex;
+    padding: 2%;
+    flex-direction: column;
+}
+.myList span {
+    position: absolute;
+    padding-left: 2%;
+    width: 40%;
+    height: 3%;
+}
+.myList img {
+    width: 20px;
+}
+
+.add-task {
+	display:flex;
+}
+
+.add-task img {
+    padding: 2%;
+}

@@ -1,0 +1,31 @@
+<div class="side-nav" id="side-nav" [ngClass]="isToggle?'' : 'side-pane'">
+    <div class="side-menu" id="side-menu">
+        <button (click)="toggle($event)"><i id="menu"></i></button>
+    </div>
+    <div class="list-day" id="list-day">
+        <img src="assets/icon/sun.png"/>
+        <span [ngClass]="isToggle?'' : 'side-span'">My Day</span>
+    </div>
+    <div class="list-important" id="list-important">
+        <img src="assets/icon/star.png"/>
+        <span [ngClass]="isToggle?'' : 'side-span'">Important</span>
+    </div>
+    <div class="list-planned" id="list-planned">
+        <img src="assets/icon/planner.png"/>
+        <span [ngClass]="isToggle?'' : 'side-span'">Planned</span>
+    </div>
+    <div class="list-task" id="list-task">
+        <img src="assets/icon/home.png"/>
+        <span [ngClass]="isToggle?'' : 'side-span'">Task</span>
+    </div>
+    <div class="tasks" id="tasks">
+        <div *ngFor="let task of list">
+            <img src="/assets/icon/round.png">
+            <span [ngClass]="isToggle?'' : 'side-span'">{{task.name}}</span>
+        </div>
+    </div>
+    <div class="list-new" id="list-new">
+        <img src="assets/icon/plus.png"/>
+        <span [ngClass]="isToggle?'' : 'side-span'"><input (keydown.enter)="newList($event)" type="text" id="newTask" placeholder="New List"/></span>
+    </div>
+</div>

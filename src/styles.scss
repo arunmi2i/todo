@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+	margin:0;
+	display:flex;
+	height: 672px;
+	flex-direction:column;
+	font-family: segoe;
+}

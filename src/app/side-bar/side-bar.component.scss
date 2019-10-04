@@ -1,0 +1,97 @@
+@font-face {
+	font-family:segoe;
+	src:url("/assets/font/segoe.ttf");
+}
+
+.side-nav {
+    width:12rem;
+    height: 100%;
+    flex-direction:column;
+    align-content: center;
+	background-color:#f4f4f4;
+	font-family:segoe;
+    font-size: 0.9rem;
+}
+
+.side-pane {
+    width:2.5rem;
+}
+/*
+.menu {
+	background:url("../../assets/icon/menu.png");
+	height:5%;
+	width:5%;
+}
+*/
+.side-menu {
+    padding: 25px 9px;
+}
+.side-span {
+    display:none;
+}
+
+.side-nav button {
+    background:url(../../assets/icon/menu.png);
+    border: none;
+    background-color: #f4f4f4;
+    outline: none;
+    width: 1.2rem;
+    height:1rem;
+}
+.side-nav span {
+	padding: 0.20% 1%;
+    position: absolute;
+}
+.list-day {
+    padding: 2px 9px;
+}
+.list-day:hover{
+    background-color:#ffffff;
+}
+
+.list-day img{
+	width:25px;
+	height:25px;
+}
+
+.list-important {
+    padding: 2px 9px;
+}
+.list-important:hover {
+    background-color:#ffffff;
+}
+
+.list-planned {
+    padding: 2px 9px;
+}
+.list-planned:hover {
+    background-color:#ffffff;
+}
+
+.list-task {
+    padding: 2px 9px;
+    
+}
+.list-task:hover {
+    background-color:#ffffff;
+}
+
+.list-mylist {
+    padding: 10% 5% 0 5%;
+}
+.list-new {
+    padding: 2px 9px;
+    width: 100%;
+    border: 0;
+    outline: 0;
+}
+
+.list-new input {
+	width:100%;
+    border: none;
+    background-color: #f4f4f4;
+    outline: none;
+}
+.tasks {
+    padding: 18px 9px;
+}
