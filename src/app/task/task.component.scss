@@ -1,6 +1,6 @@
 .list {
 	display: flex;
-    width: 30rem;
+    width: 45rem;
     height: 100%;
     flex-direction: column;
     font-family: sans-serif;
@@ -26,6 +26,13 @@
 	display: flex;
     padding: 2%;
     flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 488px;
+}
+
+.myList div {
+    height: 2rem;;
 }
 .myList span {
     position: absolute;
@@ -43,4 +50,16 @@
 
 .add-task img {
     padding: 2%;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+.uncheck {
+    content: url("../../assets/icon/round.png")
+}
+
+.check {
+    content: url("../../assets/icon/check.svg")
 }

@@ -4,7 +4,7 @@
 }
 
 .side-nav {
-    width:12rem;
+    width:15rem;
     height: 100%;
     flex-direction:column;
     align-content: center;
@@ -31,7 +31,7 @@
 }
 
 .side-nav button {
-    background:url(../../assets/icon/menu.png);
+    background-image:url("../../assets/icon/icons8-menu-20.png");
     border: none;
     background-color: #f4f4f4;
     outline: none;
@@ -94,4 +94,8 @@
 }
 .tasks {
     padding: 18px 9px;
+}
+
+.tasks a {
+    padding-left: 75%;
 }

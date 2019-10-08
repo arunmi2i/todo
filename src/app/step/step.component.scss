@@ -1,0 +1,137 @@
+.details {
+    display:flex;
+    height: 100%;
+    width: 21rem;
+	background-color:#f4f4f4;
+	flex-direction:column;
+    font-family:segoe;
+    font-size:0.8rem;
+}
+
+.details img {
+	width: 15px;
+    padding-left: 7%;
+}
+
+.details span {
+	padding:0 5%;
+}
+.step-head {
+	height: 100%;
+    padding: 5% 5% 0% 5%;
+}
+
+.head {
+	height:9%;
+	background: white;
+}
+
+.head img {
+    padding: 2.2% 0% 0% 1%;
+    position: absolute;
+}
+
+.head input {
+    font-size: 18px;
+    width: 60%;
+    height: 32%;
+    border: none;
+    outline: none;
+    padding: 9% 20% 9% 20%;
+}
+
+.steps {
+	background: white;
+	font-size: 14px;
+}
+.steps img {
+	width:12px;
+}
+.steps span {
+    padding: 0% 6%;
+}
+
+.add-steps {
+	background: white;
+}
+.add-steps img {
+    width: 15px;
+    padding-left: 7%;
+}
+
+.add-steps input{
+	padding: 5%;
+    width: 67%;
+    border: none;
+    outline: none;
+}
+
+.myDay {
+    padding: 7% 0%;
+    background: white;
+    margin: 10px 0;
+}
+.myDay:hover {
+	background:#f5f5f5;
+}
+
+.reminder {
+	padding: 7% 0%;
+    background: white;
+}
+.reminder:hover {
+	background:#f5f5f5;
+}
+
+.dueDate {
+	padding: 7% 0%;
+    background: white;
+    margin-top: 1px;
+}
+.dueDate:hover {
+	background:#f5f5f5;
+}
+
+.repeat {
+	padding: 7% 0%;
+    background: white;
+    margin-top: 1px;
+}
+.repeat:hover {
+	background:#f5f5f5;
+}
+
+.file {
+	padding: 7% 0%;
+    background: white;
+    margin: 10px 0;
+}
+.file:hover {
+	background:#f5f5f5;
+}
+.notes {
+	padding: 6% 8% 15% 8%;
+    background: white;
+    margin-top: 1px;
+}
+
+.notes input {
+    border: none;
+    outline: none;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+.uncheck {
+    content: url("../../assets/icon/round.png")
+}
+
+.check {
+    content: url("../../assets/icon/check.svg")
+}
+
+.minimize {
+    display: none;
+}

@@ -19,9 +19,10 @@
         <span [ngClass]="isToggle?'' : 'side-span'">Task</span>
     </div>
     <div class="tasks" id="tasks">
-        <div *ngFor="let task of list">
-            <img src="/assets/icon/round.png">
+        <div *ngFor="let task of list" (click)="getTask(task)">
+            <img src="/assets/icon/list.png">
             <span [ngClass]="isToggle?'' : 'side-span'">{{task.name}}</span>
+            <a>({{task.tasks.length}})</a>
         </div>
     </div>
     <div class="list-new" id="list-new">

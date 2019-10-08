@@ -1,50 +1,15 @@
-    <div class="list" id="list">
-        <div class="list-head" id="list-head">
-            <h2>Tasks</h2>
-        </div>
-        <div class="add-task">
-            <img src="plus.png"/>
-            <input type="text" id="input" placeholder="Add a task">
-        </div>
-        <div id="myList" class="myList">
+<div class="list" id="list">
+    <div class="list-head" id="list-head">
+        <h2><input type=text value={{appService.getTask()?.name}} (keydown.enter)="updateTask($event)"/></h2>
+    </div>
+    <div class="add-task">
+        <img src="../../assets/icon/plus.png"/>
+        <input (keydown.enter)="newTask($event)" type="text" id="input" placeholder="Add a task">
+    </div>
+    <div id="myList" class="myList">
+        <div *ngFor="let subTask of appService.getTask()?.tasks">
+            <img [ngClass]="subTask.checked?'check' : 'uncheck'" (click)="checked(subTask)"/>
+            <span><a [ngClass]="subTask.checked?'checked' : ''" (click)="getSubTask(subTask)" (contextmenu)="onRightClick($event)">{{subTask?.name}}</a></span>
         </div>
     </div>
-    <!--
-    <div class="details">
-        <div class="step-head" id="step-head">
-            <div class="head" id="head">
-            </div>
-            <div class="steps" id="steps"></div>
-            <div class="add-steps">
-                <img src="plus.png"/>
-                <input type="text" id="newStep" placeholder="Next Step">
-            </div>
-            <div class="myDay">
-                <img src="sun.png">
-                <span>Add to My Day</span>
-            </div>
-            <div class="reminder">
-                <img src="alarm.png"/>
-                <span>Remind me</span>
-            </div>
-            <div class="dueDate">
-                <img src="planner.png">
-                <span>Add due date</span>
-            </div>
-            <div class="repeat">
-                <img src="repeat.png">
-                <span>Repeat</span>
-            </div>
-            <div class="file">
-                <img src="attach.png">
-                <span>Add file</span>
-            </div>
-            <div class="notes">
-                <div class="content">
-                    <input type="text" id="noteContent" placeholder="Add note"/>
-                </div>
-            </div>
-            <div></div>
-        </div>
-    </div>
--->
+</div>

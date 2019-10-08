@@ -1,0 +1,43 @@
+<div class="details" [ngClass]="hide?'minimize' : ''">
+    <div class="step-head" id="step-head">
+        <div class="head" id="head">
+            <img [ngClass]="appService.subTask.checked?'check' : 'uncheck'" (click)="checked(appService.subTask)">
+            <input type=text value={{appService.subTask?.name}} [ngClass]="appService.subTask.checked?'checked' : ''" (keydown.enter)="updateSubTask($event)"/>
+        </div>
+        <div class="steps" id="steps" *ngFor="let subTask of appService.getSubTask()?.steps">
+            <img src="../../assets/icon/round.png">
+            <span [ngClass]="isToggle?'' : 'side-span'">{{subTask?.name}}</span>
+        </div>
+        <div class="add-steps">
+            <img src="../../assets/icon/plus.png"/>
+            <input (keydown.enter)="newStep($event)" type="text" id="newStep" placeholder="Next Step">
+        </div>
+        <div class="myDay">
+            <img src="../../assets/icon/sun.png">
+            <span>Add to My Day</span>
+        </div>
+        <div class="reminder">
+            <img src="../../assets/icon/alarm.png"/>
+            <span>Remind me</span>
+        </div>
+        <div class="dueDate">
+            <img src="../../assets/icon/planner.png">
+            <span>Add due date</span>
+        </div>
+        <div class="repeat">
+            <img src="../../assets/icon/repeat.png">
+            <span>Repeat</span>
+        </div>
+        <div class="file">
+            <img src="../../assets/icon/attach.png">
+            <span>Add file</span>
+        </div>
+        <div class="notes">
+            <div class="content">
+                <input type="text" id="noteContent" placeholder="Add note"/>
+            </div>
+        </div>
+        <div></div>
+    </div>
+    <div (click)="hideStep()">x</div>
+</div>
