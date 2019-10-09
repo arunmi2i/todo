@@ -1,11 +1,11 @@
-<div class="details" [ngClass]="hide?'minimize' : ''">
+<div class="details" [ngClass]="this.appService.getHideStep()?'maximize' : 'minimize'" >
     <div class="step-head" id="step-head">
         <div class="head" id="head">
-            <img [ngClass]="appService.subTask.checked?'check' : 'uncheck'" (click)="checked(appService.subTask)">
-            <input type=text value={{appService.subTask?.name}} [ngClass]="appService.subTask.checked?'checked' : ''" (keydown.enter)="updateSubTask($event)"/>
+            <img [ngClass]="subTask?.checked?'check' : 'uncheck'" (click)="checked(appService.subTask)">
+            <input type=text value={{appService.subTask?.name}} [ngClass]="appService.subTask?.checked?'checked' : ''" (keydown.enter)="updateSubTask($event)"/>
         </div>
         <div class="steps" id="steps" *ngFor="let subTask of appService.getSubTask()?.steps">
-            <img src="../../assets/icon/round.png">
+            <img src="../../assets/icon/round.png" (click)="checkStep(subTask?.steps)">
             <span [ngClass]="isToggle?'' : 'side-span'">{{subTask?.name}}</span>
         </div>
         <div class="add-steps">
@@ -37,7 +37,7 @@
                 <input type="text" id="noteContent" placeholder="Add note"/>
             </div>
         </div>
-        <div></div>
     </div>
-    <div (click)="hideStep()">x</div>
+    <div><img src="../../assets/icon/delete.png" (click)="delete(appService.subTask)"></div>
+    <div (click)="hide()">close</div>
 </div>

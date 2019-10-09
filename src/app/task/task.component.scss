@@ -6,9 +6,13 @@
     font-family: sans-serif;
 }
 
+.listwidth {
+    width:65.5rem;
+}
 .list-head {
 	padding: 0% 5%;
     color: #127AD3;
+    height: 10%;
 }
 .list-head input {
     font-size: 20px;
@@ -24,7 +28,7 @@
 
 .myList {
 	display: flex;
-    padding: 2%;
+    padding: 12px;
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
@@ -32,13 +36,14 @@
 }
 
 .myList div {
-    height: 2rem;;
+    height: 2rem;
+    border-bottom-style: ridge;
+    padding: 12px;
 }
-.myList span {
-    position: absolute;
+.myList a {
     padding-left: 2%;
     width: 40%;
-    height: 3%;
+    height: 4%;
 }
 .myList img {
     width: 20px;
@@ -49,7 +54,7 @@
 }
 
 .add-task img {
-    padding: 2%;
+    padding: 10px;
 }
 
 .checked {

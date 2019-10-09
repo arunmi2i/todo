@@ -7,12 +7,13 @@ import { AppService } from '../app.service';
     styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
-    @Input() list;
+    //@Input() list;
     constructor(private appService:AppService) { }
 
     ngOnInit() {
     }
 
+    list = this.appService.list;
     isToggle : boolean = true;
     currentTask : Object = '';
     toggle(event) {

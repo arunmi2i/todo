@@ -7,7 +7,8 @@ export class AppService {
 
   task : Object;
   subTask : Object;
-  hide : Boolean;
+  hide : boolean = false;
+  list : Object[] = [];
   constructor() { }
 
   setTask(task) {
@@ -24,9 +25,11 @@ export class AppService {
     return this.subTask;
   }
 
-  getHideStep(): any {
-    this.hide = !this.hide;
-    console.log(this.hide);
+  setHideTask(arg0: boolean) {
+    this.hide = arg0;
+  }
+
+  getHideStep(): boolean {
     return this.hide;
   }
 }

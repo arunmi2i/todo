@@ -16,22 +16,21 @@ export class TaskComponent implements OnInit {
 
   tasks:Object[];
   newTask(event) {
-    console.log(this.tasks);
     this.tasks = this.appService.task.tasks;
     if(event.target.value) {
       var subTask = {id:Number, name:String, steps:[], checked:Boolean = false};
-      lenght:Number = this.appService.task.length;
-      subTask.id = length;
+      lenght:Number = this.tasks.length;
+      console.log(this.tasks.length)
+      subTask.id = this.tasks.length;
       subTask.name = event.target.value;
       this.tasks.push(subTask);
       event.target.value = "";
-      console.log(this.appService.task);
     }
   }
 
   hide : boolean;
   getSubTask(subTask) {
-    console.log(subTask);
+    this.appService.setHideTask(true);
     this.hide = this.appService.getHideStep();
     this.appService.setSubTask(subTask);
   }
@@ -40,20 +39,20 @@ export class TaskComponent implements OnInit {
     if(event.target.value) {
       var subTask = this.appService.getTask();
       subTask.name = event.target.value; 
-      console.log(this.appService.getTask());
     }
   }
 
   checked(subTask) {
     subTask.checked = !subTask.checked;
-    console.log(subTask)
   }
   
   hideStep() {
     this.hide = this.appService.getHideStep();
   }
 
-  onrightClick(event){
-    this.hide;
-}
+  delete(task) {
+    this.appService.list.splice(this.appService.list.indexOf(task),1);
+    console.log(this.appService.list.indexOf(task))
+    //this.appService.list.splice(this.appService.list.indexOf(task));
+  }
 }

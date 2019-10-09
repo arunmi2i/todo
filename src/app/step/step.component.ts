@@ -10,9 +10,11 @@ export class StepComponent implements OnInit {
 
   constructor(private appService:AppService) { }
   sub:Object;
+  isHide : boolean = this.appService.getHideStep();
   ngOnInit() {
   }
   newStep(event) {
+    console.log(this.isHide)
     this.sub = this.appService.subTask.steps;
     if(event.target.value) {
       console.log(this.sub,event.target.value)
@@ -20,7 +22,6 @@ export class StepComponent implements OnInit {
       step.name = event.target.value;
       this.sub.push(step);
       event.target.value = "";
-      console.log(this.sub);
     }
   }
 
@@ -28,18 +29,20 @@ export class StepComponent implements OnInit {
     if(event.target.value) {
       var subTask = this.appService.getSubTask();
       subTask.name = event.target.value; 
-      console.log(this.appService.getTask());
     }
   }
 
   checked(subTask) {
-    console.log(subTask)
+    console.log(this.appService.task.tasks)
     subTask.checked = !subTask.checked;
   }
-  
-  hide : boolean;
-  hideStep() {
-    console.log("onload");
-    this.hide = this.appService.getHideStep();
+
+  delete(subTask) {
+    this.appService.task.tasks.splice(this.appService.task.tasks.indexOf(subTask),1);
+    this.hide();
+  }
+
+  hide() {
+    this.appService.setHideTask(false);
   }
 }
