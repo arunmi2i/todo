@@ -27,6 +27,6 @@
     </div>
     <div class="list-new" id="list-new">
         <img src="assets/icon/plus.png"/>
-        <span [ngClass]="isToggle?'' : 'side-span'"><input (keydown.enter)="newList($event)" type="text" id="newTask" placeholder="New List"/></span>
+        <span [ngClass]="isToggle?'' : 'side-span'"><input (keydown.enter)="newTask($event)" type="text" id="newTask" placeholder="New List"/></span>
     </div>
 </div>

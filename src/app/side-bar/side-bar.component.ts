@@ -7,21 +7,30 @@ import { AppService } from '../app.service';
     styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
-    //@Input() list;
+    @Input() list;
     constructor(private appService:AppService) { }
 
     ngOnInit() {
     }
 
-    list = this.appService.list;
+    //list = this.appService.list;
     isToggle : boolean = true;
     currentTask : Object = '';
+
+    /**
+     * Toggle the side bar when click on menu button by changing the class
+     * @param event 
+     */
     toggle(event) {
         this.isToggle = ! this.isToggle;
         console.log("toggle",event);
     }
 
-    newList(event) {
+    /**
+     * Create the new task by the name which the user entered 
+     * @param event 
+     */
+    newTask(event) {
         console.log(this.list);
         if(event.target.value) {
             var task = {id:Number, name:String, tasks:[]};
@@ -29,16 +38,15 @@ export class SideBarComponent implements OnInit {
             task.name = event.target.value;
             this.list.push(task);
             event.target.value = "";
-            console.log(task.name);
-            console.log(this.list);
         }
     }
 
+    /**
+     * Get the current task by clicking on the task name for manipulating the task data
+     * @param task 
+     */
     getTask(task) {
-        //console.log(this.currentTask);
         this.currentTask = task;
         this.appService.setTask(task);
-        console.log(this.appService.task);
-//        this.task = task;
     }
 }

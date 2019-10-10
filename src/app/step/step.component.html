@@ -4,9 +4,10 @@
             <img [ngClass]="subTask?.checked?'check' : 'uncheck'" (click)="checked(appService.subTask)">
             <input type=text value={{appService.subTask?.name}} [ngClass]="appService.subTask?.checked?'checked' : ''" (keydown.enter)="updateSubTask($event)"/>
         </div>
-        <div class="steps" id="steps" *ngFor="let subTask of appService.getSubTask()?.steps">
-            <img src="../../assets/icon/round.png" (click)="checkStep(subTask?.steps)">
-            <span [ngClass]="isToggle?'' : 'side-span'">{{subTask?.name}}</span>
+        <div class="steps" id="steps" *ngFor="let step of appService.getSubTask()?.steps">
+            <img [ngClass]="step.checked?'check' : 'uncheck'" (click)="checkStep(step)">
+            <span [ngClass]="isToggle?'' : 'side-span'">{{step?.name}}</span>
+            <img src="../../assets/icon/delete.png" (click)="deleteStep(step)">
         </div>
         <div class="add-steps">
             <img src="../../assets/icon/plus.png"/>

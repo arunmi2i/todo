@@ -9,12 +9,17 @@ import { AppService } from '../app.service';
 })
 export class TaskComponent implements OnInit {
   @Input() list : Object[];
+  tasks:Object[];
+  hide : boolean;
   constructor(private appService:AppService) { }
 
   ngOnInit() {
   }
 
-  tasks:Object[];
+  /**
+   * Get the task and add newsub task in the task
+   * @param event 
+   */
   newTask(event) {
     this.tasks = this.appService.task.tasks;
     if(event.target.value) {
@@ -28,13 +33,20 @@ export class TaskComponent implements OnInit {
     }
   }
 
-  hide : boolean;
+  /**
+   * Get the subtask from the array by clicking the name
+   * @param subTask 
+   */
   getSubTask(subTask) {
     this.appService.setHideTask(true);
     this.hide = this.appService.getHideStep();
     this.appService.setSubTask(subTask);
   }
 
+  /**
+   * Update the name of the subtask which user entered
+   * @param event 
+   */
   updateTask(event) {
     if(event.target.value) {
       var subTask = this.appService.getTask();
@@ -42,17 +54,26 @@ export class TaskComponent implements OnInit {
     }
   }
 
+  /**
+   * Change the staus of the subtask from unchecked to checked and vise versa
+   * @param subTask 
+   */
   checked(subTask) {
     subTask.checked = !subTask.checked;
   }
-  
+
+  /**
+   * 
+   *
   hideStep() {
     this.hide = this.appService.getHideStep();
-  }
+  }*/
 
+  /**
+   * Delete the subtask from the array using the index of array
+   * @param task 
+   */
   delete(task) {
     this.appService.list.splice(this.appService.list.indexOf(task),1);
-    console.log(this.appService.list.indexOf(task))
-    //this.appService.list.splice(this.appService.list.indexOf(task));
   }
 }
