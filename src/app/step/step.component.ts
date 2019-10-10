@@ -40,12 +40,16 @@ export class StepComponent implements OnInit {
     }
   }
 
+  checked(subTask) {
+    console.log(subTask)
+    subTask.checked = !subTask.checked;
+  }
+
   /**
    * Change the status of the subtask from checked to unchecked and vice versa
    * @param step 
    */
   checkStep(step) {
-    console.log(step)
     step.checked = !step.checked;
   }
 

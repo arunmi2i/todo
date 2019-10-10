@@ -59,6 +59,7 @@ export class TaskComponent implements OnInit {
    * @param subTask 
    */
   checked(subTask) {
+    console.log(subTask.filter(step => step.checked))
     subTask.checked = !subTask.checked;
   }
 
